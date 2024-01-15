@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div style="width:800px">
+        <canvas id="chartjs">
+
+        </canvas>
+    </div>
+</body>
+<script>
+
+    const ctx = document.getElementById("chartjs");
+    
+    chart = new Chart(ctx, {
+                    type: 'line',
+                    data : {
+                        datasets: [
+                            {
+                                label : "Augmentation de l'acidité (%)",
+                                data: [
+                                    {x: '1985', y: 0}, 
+                                    {x: '1990', y: 5}, 
+                                    {x: '1995', y: 5}, 
+                                    {x: '2000', y: 8.6},
+                                    {x: '2005', y: 12.2},
+                                    {x: '2010', y: 15.8},
+                                    {x: '2015', y: 19.4},
+                                    {x: '2020', y: 23},
+                                ],
+                                fill : false,
+                                backgroundColor : 'yellow',
+                                pointRadius: 5,
+                                borderWidth: 2
+                            }],
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'year'
+                                }
+                            },
+                            y : {
+                                min : 0,
+                                max : 30
+                            }
+                        }
+                    }
+                });
+
+
+</script>
+</html>
+
+
