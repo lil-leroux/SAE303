@@ -35,7 +35,7 @@ Reset
 $.reset = () => {
 	$.dpr = window.devicePixelRatio;
 	$.w = window.innerWidth;
-	$.h = 4440;
+	$.h = 4000;
 	$.cx = $.w / 2;
 	$.cy = $.h / 2;
 	$.c.width = $.w * $.dpr;

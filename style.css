@@ -6,7 +6,15 @@ html,
 body {
     height: 100%;
     margin: 0;
+    
+
 }
+
+#nuage {
+    background: linear-gradient(0deg, #e7eac1 2%, #9de0fe 100%);
+    background-size: 400% 400%;
+}
+
 
 .effra {
     font-family: "Effra", sans-serif;
@@ -107,7 +115,7 @@ div.float-wrapper {
 
 div#ocean .arrow h1 {
     color: #2d72b6;
-    padding-top: 12%;
+    padding-top: 10%;
     font-size: 9vw;
     font-family: "Effra", sans-serif;
     margin: auto;
@@ -138,6 +146,8 @@ div#ocean h2 {
     z-index: 1;
     filter: url(#blur);
     -webkit-filter: blur(30px);
+    height: 500px;
+
 }
 
 canvas {
@@ -148,4 +158,124 @@ canvas {
     /* ici */
     width: 100%;
     z-index: 1;
+    height: 1500px;
+    margin: 20px;
+    padding-bottom: 20px;
+
+}
+
+/* presentation Section */
+.fondbleu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #1c9ce698;
+}
+
+.resumer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 140%;
+
+    width: 700px;
+    background-color: rgba(122, 147, 176, 0.116);
+    border-radius: 20px;
+    box-shadow: 20px 20px 40px 3px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    padding-top: 1;
+    z-index: 7;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.resumer h2 {
+    color: white;
+    font-family: "Effra", sans-serif;
+    font-size: 2vw;
+    font-weight: 400;
+    padding: 20px;
+
+}
+
+.resumer p {
+    margin-bottom: 20px;
+    font-family: "Effra", sans-serif;
+
+}
+
+.resumer .cta {
+    color: #ffffff;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 2rem;
+    background: #2d72b6;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+.scroll-downs {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+    margin: 0;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 34px;
+    height: 55px;
+    z-index: 1;
+}
+
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 3px solid #fff;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
 }
