@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div style="width:800px">
+        <canvas id="chartjs">
+
+        </canvas>
+       <select name="colors" id="col-select">
+            <option value="#22a1e670">Blue</option>
+            <option value="#ffee0070">Yellow</option>
+        </select>
+
+        <select name="datasets" id="data-select">
+            <option value="0">Acidification en PH</option>
+            <option value="1">Acidification en %</option>
+        </select>
+    </div>
+</body>
+<script>
+
+    const ctx = document.getElementById("chartjs");
+    
+
+
+    chart = new Chart(ctx, {
+                    type: 'line',
+                    data : {
+                        datasets: [
+                            {
+                                label : "Acidification en PH",
+                                data: [
+                                    {x: '1998', y: 120}, 
+                                    {x: '1999', y: 100}, 
+                                    {x: '2000', y: 110},
+                                    {x: '2002', y: 92},
+                                    {x: '2004', y: 87},
+                                    {x: '2005', y: 56}
+                                ],
+                                fill : false,
+                                backgroundColor : 'blue',
+                                pointRadius: 5,
+                                borderWidth: 2
+                            },
+                            {
+                                label : "Acidification en %",
+                                data: [
+                                    {x: '1998', y: 3}, 
+                                    {x: '1999', y: 10}, 
+                                    {x: '2000', y: 30},
+                                    {x: '2002', y: 50},
+                                    {x: '2004', y: 70},
+                                    {x: '2005', y: 120},
+                                    {x: '2006', y: 120},
+                                    {x: '2007', y: 120},
+                                    {x: '2008', y: 120},
+                                    {x: '2009', y: 120},
+                                    {x: '2010', y: 120},
+                                ],
+                                fill : false,
+                                backgroundColor : 'yellow',
+                                pointRadius: 5,
+                                borderWidth: 2
+                        }],
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'time',
+                                time: {
+                                    unit: 'year'
+                                }
+                            },
+                            y : {
+                                min : 0,
+                                max : 200
+                            }
+                        }
+                    }
+                });
+
+
+</script>
+</html>
+
+
