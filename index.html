@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 
 <body>
@@ -25,16 +27,33 @@
                 </div>
                 <h2 class="effra">au cours du temps</h2>
             </div>
-           
+
         </div>
 
-        <main class="fondbleu"> <div class="scroll-downs">
+        <main class="fondbleu">
+            <div class="scroll-downs">
                 <div class="mousey">
                     <div class="scroller"></div>
                 </div>
             </div>
+
             <div class="resumer">
+
                 <h2>La menace de la hausse de l'acidification des océans</h2>
+                <div class="graphique">
+                    <canvas id="chartjs">
+
+                    </canvas>
+                    <select name="colors" id="col-select">
+                        <option value="#22a1e670">Blue</option>
+                        <option value="#ffee0070">Yellow</option>
+                    </select>
+
+                    <select name="datasets" id="data-select">
+                        <option value="0">Acidification en PH</option>
+                        <option value="1">Acidification en %</option>
+                    </select>
+                </div>
                 <p>La moyenne du pH océanique mondial est passée de 8,11 en 1985 à 8,05 en 2020. Une diminution du
                     pH correspond
                     à une augmentation de l'acidité de l'eau océanique en raison de la quantité croissante de
@@ -47,11 +66,104 @@
                 </p>
                 <a href="https://www.statista.com/statistics/1338869/average-global-ocean-ph/" class="cta">En savoir
                     plus</a>
+                <script>
+
+                    const ctx = document.getElementById("chartjs");
+
+                    chart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            datasets: [
+                                {
+                                    label: "Augmentation de l'acidité (%)",
+                                    data: [
+                                        { x: '1985', y: 0 },
+                                        { x: '1990', y: 5 },
+                                        { x: '1995', y: 5 },
+                                        { x: '2000', y: 8.6 },
+                                        { x: '2005', y: 12.2 },
+                                        { x: '2010', y: 15.8 },
+                                        { x: '2015', y: 19.4 },
+                                        { x: '2020', y: 23 },
+                                    ],
+                                    fill: false,
+                                    backgroundColor: 'yellow',
+                                    pointRadius: 5,
+                                    borderWidth: 2
+                                }],
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    type: 'time',
+                                    time: {
+                                        unit: 'year'
+                                    }
+                                },
+                                y: {
+                                    min: 0,
+                                    max: 30
+                                }
+                            }
+                        }
+                    });
+
+
+                </script>
+                <script>
+
+                    const ctx2 = document.getElementById("chartjs");
+
+                    chart = new Chart(ctx2, {
+                        type: 'line',
+                        data: {
+                            datasets: [
+                                {
+                                    label: "PH",
+                                    data: [
+                                        { x: '1985', y: 8.11 },
+                                        { x: '1990', y: 8.1 },
+                                        { x: '1995', y: 8.1 },
+                                        { x: '2000', y: 8.09 },
+                                        { x: '2005', y: 8.08 },
+                                        { x: '2010', y: 8.07 },
+                                        { x: '2015', y: 8.06 },
+                                        { x: '2020', y: 8.05 },
+                                    ],
+                                    fill: false,
+                                    backgroundColor: 'blue',
+                                    pointRadius: 5,
+                                    borderWidth: 2
+                                }],
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    type: 'time',
+                                    time: {
+                                        unit: 'year'
+                                    }
+                                },
+                                y: {
+                                    min: 8,
+                                    max: 8.5
+                                }
+                            }
+                        }
+                    });
+
+
+                </script>
             </div>
         </main>
     </section>
+    <div class="cursor"></div>
+    <script src="cursor.js"></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/836/simplex-noise.min.js'></script>
     <script src="script.js"></script>
+    
+
+
 </body>
 
 </html>
