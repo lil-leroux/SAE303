@@ -9,14 +9,12 @@
 </head>
 <body>
     <div style="width:800px">
-        <canvas id="chartjs">
-
-        </canvas>
+        <canvas id="chartph"></canvas>
     </div>
 </body>
 <script>
 
-    const ctx = document.getElementById("chartjs");
+    const ctx = document.getElementById("chartph");
     
     chart = new Chart(ctx, {
                     type: 'line',
@@ -36,6 +34,7 @@
                                 ],
                                 fill : false,
                                 backgroundColor : 'blue',
+                                borderColor: 'rgba(87, 138, 254, 0.65)',
                                 pointRadius: 5,
                                 borderWidth: 2
                             }],

@@ -9,14 +9,12 @@
 </head>
 <body>
     <div style="width:800px">
-        <canvas id="chartjs">
-
-        </canvas>
+        <canvas id="chartpourcentage"></canvas>
     </div>
 </body>
 <script>
 
-    const ctx = document.getElementById("chartjs");
+    const ctx = document.getElementById("chartpourcentage");
     
     chart = new Chart(ctx, {
                     type: 'line',
@@ -34,8 +32,8 @@
                                     {x: '2015', y: 19.4},
                                     {x: '2020', y: 23},
                                 ],
-                                fill : false,
-                                backgroundColor : 'yellow',
+                                fill : true,
+                                backgroundColor : ' rgba(254, 254, 87, 0.65) ',
                                 pointRadius: 5,
                                 borderWidth: 2
                             }],
