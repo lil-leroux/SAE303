@@ -12,7 +12,7 @@ body {
 
 #nuage {
     background: linear-gradient(0deg, #e7eac1 2%, #9de0fe 100%);
-    background-size: 400% 400%;
+    height: 1000px;
 }
 
 
@@ -21,13 +21,13 @@ body {
     text-transform: uppercase;
 }
 
-div.float-wrapper {
-    position: relative;
-    height: 40vw;
-    text-align: baseline;
-    justify-content: baseline;
-    border: 1px solid transparent;
+.vague {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    
 }
+
 
 
 
@@ -139,42 +139,7 @@ div#ocean h2 {
 
 }
 
-
-.vague {
-    overflow: hidden;
-    position: absolute;
-    z-index: 1;
-    filter: url(#blur);
-    -webkit-filter: blur(30px);
-    height: 500px;
-
-}
-
-canvas {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    top: 40%;
-    /* ici */
-    width: 100%;
-    z-index: 1;
-    height: 1500px;
-    margin: 20px;
-    padding-bottom: 20px;
-
-}
-
-/* presentation Section */
-.fondbleu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: #1c9ce698;
-}
-
-.resumer {
+.container{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -183,18 +148,18 @@ canvas {
     flex-wrap: wrap;
     top: 140%;
 
-    width: 700px;
-    background-color: rgba(122, 147, 176, 0.116);
-    border-radius: 20px;
-    box-shadow: 20px 20px 40px 3px rgba(0, 0, 0, 0.3);
+}
+
+.resumer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 30px;
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    border-top: 1px solid rgba(255, 255, 255, .3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
-    padding-top: 1;
-    z-index: 7;
+    z-index: 3;
     margin: 0;
     padding-top: 10px;
 }
@@ -204,7 +169,7 @@ canvas {
     font-family: "Effra", sans-serif;
     font-size: 2vw;
     font-weight: 400;
-    padding: 20px;
+    padding: 50px;
 
 }
 
@@ -227,18 +192,126 @@ a {
     text-decoration: none;
 }
 
-.graphique {
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 10;
+    padding: 15px;
+}
+
+/* Styles pour le premier graphique */
+#chartjs1 {
     width: 80%;
-    height: 600px;
+    height: 60vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px; /* Ajout d'une marge entre les deux graphiques */
+    
+}
+
+#yearSlider1 {
+    width: 80%;
+    margin-top: 10px;
+    background-color: #3498db;
+    border: none;
+    height: 5px;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+#yearSlider1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    cursor: pointer;
+}
+
+#yearSlider1::-webkit-slider-thumb:hover {
+    background-color: #2980b9;
+}
+
+/* Styles pour le deuxième graphique */
+#chartjs2 {
+    width: 80%;
+    height: 60vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px; /* Ajout d'une marge entre les deux graphiques */
+}
+
+#yearSlider2 {
+    width: 80%;
+    margin-top: 10px;
+    background-color: #e74c3c; /* Nouvelle couleur pour le slider du deuxième graphique */
+    border: none;
+    height: 5px;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+#yearSlider2::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #e74c3c; /* Nouvelle couleur pour le thumb du deuxième graphique */
+    cursor: pointer;
+}
+
+#yearSlider2::-webkit-slider-thumb:hover {
+    background-color: #c0392b; /* Nouvelle couleur hover pour le thumb du deuxième graphique */
+}
+
+/* Overlay et Modal pour chaque graphique */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.modal {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 999;
 }
 
 
+
+
+/*////////////////*/
 
 .scroll-downs {
     display: flex;
     justify-content: center;
     position: absolute;
     top: 60%;
+    left: 50%;
     margin: 0;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -284,6 +357,7 @@ a {
     }
 }
 
+/*////////////////*/
 
 /*curseur*/
 .cursor {
